@@ -6,8 +6,13 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
+  gem 'heroku_san'
   gem 'sqlite3'
   gem 'pry-rails'
+end
+
+group :production do
+  gem 'pg'
 end
 
 
@@ -30,6 +35,20 @@ gem 'bootstrap-sass', '~> 2.0.4.0'
 # authentication
 gem 'devise'
 gem 'omniauth-weibo-oauth2'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'launchy'
+
+  gem 'guard-rspec'
+  gem 'guard-spork'
+
+  gem 'rb-fsevent'
+  gem 'growl'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
