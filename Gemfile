@@ -36,6 +36,9 @@ gem 'bootstrap-sass', '~> 2.0.4.0'
 gem 'devise'
 gem 'omniauth-weibo-oauth2'
 
+# admin
+gem 'rails_admin'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

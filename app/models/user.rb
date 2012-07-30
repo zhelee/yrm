@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :provider, :uid
 
+  has_many :users_events
+  has_many :events, :through => :users_events
+
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
