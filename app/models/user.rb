@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :events, :through => :users_events
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(:provider => auth.provider, :uid => "#{auth.uid}").first
     unless user
       user = User.create(
         username: auth.extra.raw_info.name, 
