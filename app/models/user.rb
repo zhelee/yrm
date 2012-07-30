@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.weibo_data"] && session["devise.weibo_data"]["extra"]["raw_info"]
+      if data = session["devise.weibo_data"]
         user.email = data["email"] if user.email.blank?
         user.username = data["name"]
         user.provider = session["devise.weibo_data"]["provider"]
