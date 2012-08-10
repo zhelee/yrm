@@ -3,15 +3,17 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable
+  devise :omniauthable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :authentication_token, :place
   # attr_accessible :title, :body
   attr_accessible :provider, :uid
 
   has_many :users_events
   has_many :events, :through => :users_events
+
+  before_save :ensure_authentication_token
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => "#{auth.uid}").first

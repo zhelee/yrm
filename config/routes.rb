@@ -8,6 +8,8 @@ Yrm::Application.routes.draw do
     :registrations => "users/registrations"
   }
 
+  resources :token_authentications, :only => [:create, :destroy]
+
   root :to => 'pages#index'
 
 end
