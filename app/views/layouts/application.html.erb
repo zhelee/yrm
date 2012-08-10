@@ -9,8 +9,12 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<%= link_to "Sign in", new_user_session_path %>
+<br />
 <%= link_to "Sign in with Weibo", user_omniauth_authorize_path(:weibo) %>
+<br />
 <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
+<br />
 <%= yield %>
 
 
