@@ -4,10 +4,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     user = User.create({:email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation]})
     if user.new_record?
-      render :json => {:code => 2, :msg => user.errors.messages}
+      render :json => {:code => 1, :msg => user.errors.messages}
     else
       sign_in(user)
-      render :json => {:code => 1, :msg => {:token => current_user.authentication_token}}
+      render :json => {:code => 0, :msg => {:token => current_user.authentication_token}}
     end
   end
 
@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_info = params.except(:_method, :authentication_token, :controller, :action)
     current_user.update_attributes!(user_info)
     current_user.reload
-    render :json => {:code => 1, :msg => {:token => current_user.authentication_token}}
+    render :json => {:code => 0, :msg => {:token => current_user.authentication_token}}
   end
 
 end
