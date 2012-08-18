@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :json => {:code => 1, :msg => user.errors.messages}
     else
       sign_in(user)
-      render :json => {:code => 0, :msg => {:token => current_user.authentication_token}}
+      render :json => {:code => 0, :msg => {:user => user.to_json}}
     end
   end
 
@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_info = params.except(:_method, :authentication_token, :controller, :action)
     current_user.update_attributes!(user_info)
     current_user.reload
-    render :json => {:code => 0, :msg => {:token => current_user.authentication_token}}
+    render :json => {:code => 0, :msg => {:user => current_user.to_json}}
   end
 
 end
