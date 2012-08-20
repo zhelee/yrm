@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       format.html { super }
       format.json {
-        user_info = params.except(:format, :_method, :authentication_token, :controller, :action)
+        user_info = params.except(:format, :_method, :authentication_token, :controller, :action, :version)
         current_user.update_attributes!(user_info)
         current_user.reload
         render :json => {:code => 0, :msg => {:user => current_user.to_json}}
