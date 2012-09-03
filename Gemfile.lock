@@ -279,6 +279,7 @@ DEPENDENCIES
   rails (= 3.2.6)
   rails_admin
   rb-fsevent
+  rest-client
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
