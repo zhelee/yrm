@@ -1,4 +1,10 @@
 = form_tag send_notify_path do
+  = label_tag :alert_message, "alert message"
+  %br
   = text_field_tag :msg
+  %br
+  = label_tag :badge, "badge on the app icon"
+  %br
   = text_field_tag :badge
+  %br
   = submit_tag :submit
