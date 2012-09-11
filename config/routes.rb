@@ -1,5 +1,9 @@
 Yrm::Application.routes.draw do
 
+  resources :chats, :only => [:new, :create]
+
+  devise_for :admins
+
   match "webconsole" => "webconsole#index", :as => :webconsole_index
   match "webconsole/notify" => "webconsole#notify", :as => :send_notify
 

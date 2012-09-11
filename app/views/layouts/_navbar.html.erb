@@ -4,9 +4,9 @@
       <a class="brand" href="<%= root_url %>">Anyone Here?</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <% if current_user.nil? %>
+          <% if current_admin.nil? %>
             <li>
-              <%= link_to "Sign in", new_user_session_path %>
+              <%= link_to "Sign in", new_admin_session_path %>
             </li>
             <li>
               <%= link_to "Sign in with Weibo", user_omniauth_authorize_path(:weibo) %>
@@ -16,7 +16,7 @@
           <%= link_to "admin", rails_admin_path %>
           </li>
             <li>
-              <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
+              <%= link_to "sign out", destroy_admin_session_path, :method => :delete %>
             </li>
             <li>
               <%= link_to "web console", webconsole_index_path %>
