@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908161333) do
+ActiveRecord::Schema.define(:version => 20120915045535) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -120,5 +120,23 @@ ActiveRecord::Schema.define(:version => 20120908161333) do
 
   add_index "users_events", ["event_id"], :name => "index_users_events_on_event_id"
   add_index "users_events", ["user_id"], :name => "index_users_events_on_user_id"
+
+  create_table "yourenmas", :force => true do |t|
+    t.integer  "yrm_topic_id"
+    t.string   "place"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "yourenmas", ["user_id"], :name => "index_yourenmas_on_user_id"
+  add_index "yourenmas", ["yrm_topic_id"], :name => "index_yourenmas_on_yrm_topic_id"
+
+  create_table "yrm_topics", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
