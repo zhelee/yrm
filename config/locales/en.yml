@@ -2,4 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  user:
+    title: '用户'
+  yourenma:
+    title: '有人吗'
+  admin:
+    title: '管理员'
+  topic:
+    title: '有人吗话题'
+  event:
+    title: '活动'

@@ -23,11 +23,11 @@ RailsAdmin.config do |config|
 
   #  ==> Global show view settings
   # Display empty fields in show views
-  # config.compact_show_view = false
+  config.compact_show_view = true
 
   #  ==> Global list view settings
   # Number of default rows per-page:
-  # config.default_items_per_page = 20
+  config.default_items_per_page = 10
 
   #  ==> Included models
   # Add all excluded models here:
@@ -37,7 +37,7 @@ RailsAdmin.config do |config|
   # config.included_models = [User]
 
   # Application wide tried label methods for models' instances
-  # config.label_methods << :description # Default is [:name, :title]
+  config.label_methods << :description # Default is [:name, :title]
 
   #  ==> Global models configuration
   # config.models do
@@ -76,38 +76,29 @@ RailsAdmin.config do |config|
   # end
 
   config.model User do
+    label I18n.t("user.title")
+    label_plural I18n.t("user.title")
     object_label_method :username
   end
 
-  # Your model's configuration, to help you get started:
+  config.model Admin do
+    label I18n.t("admin.title")
+    label_plural I18n.t("admin.title")
+    object_label_method :username
+  end
 
-  # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
+  config.model Yourenma do
+    label I18n.t("yourenma.title")
+    label_plural I18n.t("yourenma.title")
+  end
 
-  # config.model User do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :provider, :string 
-  #     configure :uid, :string 
-  #     configure :username, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  config.model Topic do
+    label I18n.t("topic.title")
+    label_plural I18n.t("topic.title")
+  end
+
+  config.model Event do
+    label I18n.t("event.title")
+    label_plural I18n.t("event.title")
+  end
 end
