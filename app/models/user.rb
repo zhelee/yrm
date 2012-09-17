@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  rails_admin do
+    label I18n.t("user.title")
+    label_plural I18n.t("user.title")
+  end
+
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => "#{auth.uid}").first
     unless user

@@ -4,8 +4,8 @@
 RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
-  # require 'i18n'
-  # I18n.default_locale = :de
+  require 'i18n'
+  I18n.default_locale = "zh-CN"
 
   config.current_user_method { current_admin } # auto-generated
 
@@ -74,31 +74,4 @@ RailsAdmin.config do |config|
   #     # Here goes the fields configuration for the list view
   #   end
   # end
-
-  config.model User do
-    label I18n.t("user.title")
-    label_plural I18n.t("user.title")
-    object_label_method :username
-  end
-
-  config.model Admin do
-    label I18n.t("admin.title")
-    label_plural I18n.t("admin.title")
-    object_label_method :username
-  end
-
-  config.model Yourenma do
-    label I18n.t("yourenma.title")
-    label_plural I18n.t("yourenma.title")
-  end
-
-  config.model Topic do
-    label I18n.t("topic.title")
-    label_plural I18n.t("topic.title")
-  end
-
-  config.model Event do
-    label I18n.t("event.title")
-    label_plural I18n.t("event.title")
-  end
 end

@@ -6,4 +6,9 @@ class Event < ActiveRecord::Base
 
   has_many :users_events
   has_many :users, :through => :users_events
+
+  rails_admin do
+    label I18n.t("event.title")
+    label_plural I18n.t("event.title")
+  end
 end

@@ -8,4 +8,8 @@ class Admin < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+  rails_admin do
+    label I18n.t("admin.title")
+    label_plural I18n.t("admin.title")
+  end
 end
