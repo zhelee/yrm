@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
     field :password_confirmation do
       label I18n.t("user.attrs.password_confirmation")
     end
+    field :acs_uid
+    field :acs_password
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
