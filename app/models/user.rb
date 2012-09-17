@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   rails_admin do
     label I18n.t("user.title")
     label_plural I18n.t("user.title")
+    object_label_method :username
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)

@@ -3,9 +3,16 @@ zh-CN:
     title: 管理员
   yourenma:
     title: 有人吗
+    attrs:
+      place: 地点
+      description: 描述
   user:
     title: 用户
   topic:
     title: 话题
+    attrs:
+      name: 名称
+      type: 话题类型
+      description: 描述
   event:
     title: 活动
