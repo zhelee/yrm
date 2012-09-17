@@ -11,5 +11,14 @@ class Admin < ActiveRecord::Base
   rails_admin do
     label I18n.t("admin.title")
     label_plural I18n.t("admin.title")
+    field :email do
+      label I18n.t("admin.attrs.email")
+    end
+    field :password do
+      label I18n.t("admin.attrs.password")
+    end
+    field :password_confirmation do
+      label I18n.t("admin.attrs.password_confirmation")
+    end
   end
 end

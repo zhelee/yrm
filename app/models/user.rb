@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
     label I18n.t("user.title")
     label_plural I18n.t("user.title")
     object_label_method :username
+    field :username do
+      label I18n.t("user.attrs.username")
+    end
+    field :email do
+      label I18n.t("user.attrs.email")
+    end
+    field :password do
+      label I18n.t("user.attrs.password")
+    end
+    field :password_confirmation do
+      label I18n.t("user.attrs.password_confirmation")
+    end
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)

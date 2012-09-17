@@ -1,6 +1,10 @@
 zh-CN:
   admin:
     title: 管理员
+    attrs:
+      email: 电子邮箱
+      password: 密码
+      password_confirmation: 密码确认
   yourenma:
     title: 有人吗
     attrs:
@@ -8,6 +12,11 @@ zh-CN:
       description: 描述
   user:
     title: 用户
+    attrs:
+      email: 电子邮箱
+      username: 用户名
+      password: 密码
+      password_confirmation: 密码确认
   topic:
     title: 话题
     attrs:
