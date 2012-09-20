@@ -1,7 +1,8 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :description, :name, :topic_type, :events
+  attr_accessible :description, :name, :topic_type, :events, :yourenma
 
   has_many :events
+  has_many :yourenma, :class_name => "Yourenma"
 
   rails_admin do
     label I18n.t("topic.title")
