@@ -5,7 +5,7 @@ class YourenmasController < ApplicationController
 
   def index
     if(params[:topic])
-      @yourenmas = Topic.find_by_name(params[:topic]).yourenma.order("created_at DESC")
+      @yourenmas = Topic.include(:yourenma).find_by_name(params[:topic]).yourenma.order("created_at DESC")
     else
       @yourenmas = Yourenma.order("created_at DESC").all
     end
@@ -21,6 +21,17 @@ class YourenmasController < ApplicationController
       :topic_id => topic_id,
       :description => params[:description]
     })
+    respond_with yourenma
+  end
+
+  def update
+    @yourenma = Yourenma.find params[:id]
+    respond_with @yourenma
+  end
+
+  def destroy
+    yourenma = Yourenma.find params[:id]
+    yourenma.destroy
     respond_with yourenma
   end
 
