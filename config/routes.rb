@@ -17,6 +17,12 @@ Yrm::Application.routes.draw do
 
   resources :token_authentications, :only => [:create, :destroy]
 
+  namespace :api do
+    namespace :v1 do
+      resources :yourenmas
+    end
+  end
+
   root :to => 'pages#index'
 
 end

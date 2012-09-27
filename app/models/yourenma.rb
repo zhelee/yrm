@@ -1,7 +1,9 @@
 class Yourenma < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
-  attr_accessible :description, :place, :user_id, :topic_id
+  attr_accessible :description, :place, :user, :topic, :user_id, :topic_id
+
+  validates_presence_of :user, :topic, :place, :description
 
   rails_admin do
     label I18n.t("yourenma.title")
