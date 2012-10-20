@@ -1,10 +1,9 @@
 module Api
   module V1
-    class YourenmasController < ApplicationController
-      respond_to :json
-      skip_before_filter :verify_authenticity_token
+    class YourenmasController < Api::BaseController
 
       def index
+        binding.pry
         @yourenmas = Yourenma.all
         respond_with @yourenmas
       end

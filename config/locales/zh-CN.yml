@@ -25,3 +25,5 @@ zh-CN:
       description: 描述
   event:
     title: 活动
+  error:
+    no-user: 无法找到用户
