@@ -3,7 +3,6 @@ module Api
     class YourenmasController < Api::BaseController
 
       def index
-        binding.pry
         @yourenmas = Yourenma.all
         respond_with @yourenmas
       end

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :authentication_token, :place
   attr_accessible :birthday, :constellation, :description
   attr_accessible :acs_uid, :acs_password
+  attr_accessible :location
   # attr_accessible :title, :body
   attr_accessible :provider, :uid
 

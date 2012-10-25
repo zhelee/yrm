@@ -6,8 +6,8 @@ module Api
       respond_to :json
 
       def login
-        @user = User.find_for_database_authentication(:email => params[:user][:email])
-        if @user && @user.valid_password?(params[:user][:password])
+        @user = User.find_for_database_authentication(:email => params[:email])
+        if @user && @user.valid_password?(params[:password])
           sign_in @user
         else
           render :login_error
