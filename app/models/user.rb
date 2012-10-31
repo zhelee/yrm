@@ -35,6 +35,15 @@ class User < ActiveRecord::Base
     end
     field :acs_uid
     field :acs_password
+    field :location
+  end
+
+  def lat
+    location.split(':')[0]
+  end
+
+  def lon
+    location.split(':')[1]
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)

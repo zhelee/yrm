@@ -21,7 +21,11 @@ class Yourenma < ActiveRecord::Base
   end
 
   def self.around_me user
-    
+    users = []
+    User.find_each do |u|
+      users << u if haversine_distance(u.lat, u.lon, user.lat, user.lon)['km'] <= 50
+    end
+    haversine_distance
   end
 
   # PI = 3.1415926535
