@@ -11,7 +11,6 @@ class YourenmasController < ApplicationController
     # end
 
     @yourenmas = current_user.around_me.collect{|user| user.yourenmas }.flatten
-    binding.pry
     respond_with @yourenmas
   end
 
