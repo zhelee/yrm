@@ -1,7 +1,16 @@
 class Yourenma < ActiveRecord::Base
+
   belongs_to :topic
   belongs_to :user
   attr_accessible :description, :place, :user_id, :topic_id
+
+  # PI = 3.1415926535
+  RAD_PER_DEG = 0.017453293  #  PI/180
+
+  Rmiles = 3956           # radius of the great circle in miles
+  Rkm = 6371              # radius in kilometers...some algorithms use 6367
+  Rfeet = Rmiles * 5282   # radius in feet
+  Rmeters = Rkm * 1000    # radius in meters
 
   rails_admin do
     label I18n.t("yourenma.title")
@@ -25,21 +34,11 @@ class Yourenma < ActiveRecord::Base
     User.find_each do |u|
       users << u if haversine_distance(u.lat, u.lon, user.lat, user.lon)['km'] <= 50
     end
-    haversine_distance
+    yrms = users.collect{|user| user.yourenmas }.flatten
+    binding.pry
   end
 
-  # PI = 3.1415926535
-  RAD_PER_DEG = 0.017453293  #  PI/180
-
-  # the great circle distance d will be in whatever units R is in
-
-  Rmiles = 3956           # radius of the great circle in miles
-  Rkm = 6371              # radius in kilometers...some algorithms use 6367
-  Rfeet = Rmiles * 5282   # radius in feet
-  Rmeters = Rkm * 1000    # radius in meters
-
   def self.haversine_distance( lat1, lon1, lat2, lon2 )
-
     distances = Hash.new
 
     dlon = lon2 - lon1
