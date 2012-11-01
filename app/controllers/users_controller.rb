@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def update_location
     user = User.find params[:id]
     user.update_attribute(:location, params[:location])
-    binding.pry
+    render :json => {:res => true}
   end
 
 end

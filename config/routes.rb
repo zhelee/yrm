@@ -17,7 +17,7 @@ Yrm::Application.routes.draw do
 
   resources :users do
     member do
-      post :update_location
+      put :update_location
     end
   end
 
