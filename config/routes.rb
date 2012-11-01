@@ -15,6 +15,12 @@ Yrm::Application.routes.draw do
     :registrations => "users/registrations"
   }
 
+  resources :users do
+    member do
+      post :update_location
+    end
+  end
+
   resources :token_authentications, :only => [:create, :destroy]
 
   root :to => 'pages#index'

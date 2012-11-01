@@ -39,12 +39,21 @@ class User < ActiveRecord::Base
     field :location
   end
 
+  def around_me
+    users = []
+    User.find_each do |u|
+      distance = Yourenma.haversine_distance(u.lat, u.lon, self.lat, self.lon)['km']
+      users << u if distance <= 1
+    end
+    users
+  end
+
   def lat
-    location.split(':')[0]
+    location.split(':')[0].to_f
   end
 
   def lon
-    location.split(':')[1]
+    location.split(':')[1].to_f
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)

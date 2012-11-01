@@ -29,11 +29,8 @@ class Yourenma < ActiveRecord::Base
     end
   end
 
-  def self.around_me user
-    users = []
-    User.find_each do |u|
-      users << u if haversine_distance(u.lat, u.lon, user.lat, user.lon)['km'] <= 50
-    end
+  def self.around
+    users = user.around_me
     yrms = users.collect{|user| user.yourenmas }.flatten
     binding.pry
   end
