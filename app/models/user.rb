@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     users
   end
 
+  def distance_with u
+    Yourenma.haversine_distance(u.lat, u.lon, self.lat, self.lon)['km']
+  end
+
   def lat
     location.split(':')[0].to_f
   end

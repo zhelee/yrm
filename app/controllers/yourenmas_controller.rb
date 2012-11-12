@@ -4,12 +4,6 @@ class YourenmasController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    # if(params[:topic])
-    #   @yourenmas = Topic.include(:yourenma).find_by_name(params[:topic]).yourenmas.order("created_at DESC")
-    # else
-    #   @yourenmas = Yourenma.order("created_at DESC").all
-    # end
-
     @yourenmas = current_user.around_me.collect{|user| user.yourenmas }.flatten
     respond_with @yourenmas
   end
