@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     users = []
     User.find_each do |u|
       distance = Yourenma.haversine_distance(u.lat, u.lon, self.lat, self.lon)['km']
-      users << u if distance <= 1
+      users << u if distance <= 50
     end
     users
   end
