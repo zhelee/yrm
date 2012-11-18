@@ -18,7 +18,8 @@ class YourenmasController < ApplicationController
     yourenma = Yourenma.create({
       :user_id => user_id,
       :topic_id => topic_id,
-      :description => params[:description]
+      :description => params[:description],
+      :place => params[:place]
     })
     respond_with yourenma
   end
