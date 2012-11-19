@@ -5,4 +5,5 @@ json.array!(@yourenmas) do |json, yourenma|
   json.description yourenma.description
   json.topic yourenma.topic.name
   json.place yourenma.place
+  json.created_at yourenma.created_at
 end
