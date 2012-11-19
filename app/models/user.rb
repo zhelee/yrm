@@ -53,11 +53,19 @@ class User < ActiveRecord::Base
   end
 
   def lat
-    location.split(':')[0].to_f
+    if location
+      location.split(':')[0].to_f
+    else
+      0.0
+    end
   end
 
   def lon
-    location.split(':')[1].to_f
+    if location
+      location.split(':')[1].to_f
+    else
+      0.0
+    end
   end
 
   def self.find_for_weibo_oauth(auth, signed_in_resource=nil)
