@@ -1,4 +1,5 @@
 Yrm::Application.routes.draw do
+  mount_rails_info if Rails.env.development?
 
   devise_for :admins
 

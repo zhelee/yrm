@@ -10,6 +10,7 @@ group :development do
   gem 'heroku_san'
   gem 'sqlite3'
   gem 'pry-rails'
+  gem 'secondbureau', :path => '../secondbureau'
 end
 gem 'rails-i18n'
 
@@ -28,7 +29,7 @@ end
 
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 2.0.4.0'
+gem 'bootstrap-sass'
 
 # authentication
 gem 'devise'
