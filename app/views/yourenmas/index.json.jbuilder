@@ -6,4 +6,6 @@ json.array!(@yourenmas) do |json, yourenma|
   json.topic yourenma.topic.name
   json.place yourenma.place
   json.created_at yourenma.created_at
+  json.lat.yourenma.user.lat
+  json.lon.yourenma.user.lon
 end
